@@ -40,7 +40,6 @@
                     <a href="#city/Charleston" class="list-group-item">Charleston</a>
                     <a href="#city/Atlanta" class="list-group-item">Atlanta</a>
                     <a href="#city/Asheville" class="list-group-item">Asheville</a>
-                    <a href="#city/London" class="list-group-item">London, UK</a>
                   </div>
                 </div>
                 <div class="col-md-9">
@@ -63,8 +62,13 @@
         </script>
 
         <script type="text/template" id="feature-template">
-            <h3><%= name%></h3>
+            <h1><%= name%></h1>
             <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= coord.lat %>,<%= coord.lon %>&zoom=11&size=300x300&sensor=false">
+            <h3><%= wind.speed%></h3>
+            <h3><%= main.temp%></h3>
+            <h3><%= main.temp_min%></h3>
+            <h3><%= main.temp_max%></h3>
+
 
         </script>
 

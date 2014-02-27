@@ -27,8 +27,8 @@ var MainRouter = Backbone.Router.extend({
 
 	idToName: {
 		"Spartanburg" 	: "4597200",
-		"Greenville" 	: "4239867",
-		"Charleston"	: "4235668",
+		"Greenville" 	: "4580543",
+		"Charleston"	: "4574324",
 		"Atlanta"		: "4180439",
 		"Asheville"		: "4453066"
 	},
