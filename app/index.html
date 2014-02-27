@@ -32,15 +32,18 @@
             </div>
             <div class="container-fluid">
               <div class="row-fluid">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <!-- sidebar content -->
-                  <div class="city-list">
-                    <!-- <h3>London</h3>
-                    <h3>Greenville</h3>
-                    <h3>Spartanburg</h3> -->
+                  <div class="list-group">
+                    <a href="#city/Greenville" class="list-group-item">Greenville</a>
+                    <a href="#city/Spartanburg" class="list-group-item">Spartanburg</a>
+                    <a href="#city/Charleston" class="list-group-item">Charleston</a>
+                    <a href="#city/Atlanta" class="list-group-item">Atlanta</a>
+                    <a href="#city/Asheville" class="list-group-item">Asheville</a>
+                    <a href="#city/London" class="list-group-item">London, UK</a>
                   </div>
                 </div>
-                <div class="col-md-8">
+                <div class="col-md-9">
                   <!--Body content-->
                   <div class="featured-city">
                     <!-- <div class="boxie">hello</div> -->
@@ -56,8 +59,15 @@
         
         <!-- templates -->
         <script type="text/template" id="list-template">
-            <h3><%= name %></h3>
+            <a href="#city/<%= name %>"><%= name %></a>
         </script>
+
+        <script type="text/template" id="feature-template">
+            <h3><%= name%></h3>
+            <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= coord.lat %>,<%= coord.lon %>&zoom=11&size=300x300&sensor=false">
+
+        </script>
+
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->

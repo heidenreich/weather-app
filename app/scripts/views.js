@@ -1,37 +1,40 @@
-var ListView = Backbone.View.extend({
+// var ListView = Backbone.View.extend({
 
-	// tagName: '',
+// 	// tagName: 'a',
 
-	className: 'ironyard-cities',
+// 	className: 'ironyard-cities',
 
-	listTemplate:_.template($('#list-template').text()),
+// 	listTemplate:_.template($('#list-template').text()),
 
-	initialize: function(){
+// 	initialize: function(){
 
-		$('.city-list').append(this.el);
-		this.render()
+// 		// this.set("name",this.url +);
 
-	},
+// 		$('.city-list').append(this.el);
+// 		this.render()
 
-	render: function(){
-		this.$el.html(this.listTemplate(this.model.attributes))
+// 	},
 
-	}
-});
+// 	render: function(){
+// 		this.$el.html(this.listTemplate(this.model.attributes))
+
+// 	}
+// });
 
 var MainView = Backbone.View.extend({
 
-	className: 'featured-city',
+	className: 'featured-view',
 
 	featureTemplate:_.template($('#feature-template').text()),
 
 	initialize: function(){
-		$('.featured-city').append(this.el);
+		console.log('MainView initialize')
+		$('.featured-city').html(this.el);
 		this.render()
 	},
 
 	render: function(){
-
-		this.$html(this.featureTemplate(this.model.attributes))
+		console.log('hello')
+		this.$el.html(this.featureTemplate(this.model.attributes))
 	}
 })
