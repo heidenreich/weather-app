@@ -90,23 +90,31 @@ body {
     }
 }
 
+img {
+    display: inline-block;
+    vertical-align: top;
+}
 
-// .city-list{
-//     background-color: rgb(166, 237, 255);
-//     padding: 10px;
-//     border-radius: 6px;
+.png {
+    height: 75px;
+    width: 75px;
+}
+
+// li{
+//     font-size: 15px;
 // }
 
-// a{
-//     margin-left: 20px;
-//     font-size: 24px;
-//     display: block;
-// }
+.list-group {
+    display: inline-block;
+}
 
-// a:hover{
-//     color: white;
-//     cursor: pointer;
-// }
+a {
+    color: #999999;
+    font-size: 18px;
+}
+
+
+
 
 
 

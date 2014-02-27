@@ -31,9 +31,16 @@
                 <h1>Another Weather App? <small>yes, I think so..</small></h1>
             </div>
             <div class="container-fluid">
+                <ul class="nav nav-pills nav-justified">
+                    <li><a href="#city/Greenville">Greenville</a></li>
+                    <li><a href="#city/Spartanburg">Spartanburg</a></li>
+                    <li><a href="#city/Charleston">Charleston</a></li>
+                    <li><a href="#city/Atlanta">Atlanta</a></li>
+                    <li><a href="#city/Charleston">Asheville</a></li>
+                </ul>
+
               <div class="row-fluid">
-                <div class="col-md-3">
-                    <!-- sidebar content -->
+          <!--       <div class="col-md-3">
                   <div class="list-group">
                     <a href="#city/Greenville" class="list-group-item">Greenville</a>
                     <a href="#city/Spartanburg" class="list-group-item">Spartanburg</a>
@@ -41,8 +48,8 @@
                     <a href="#city/Atlanta" class="list-group-item">Atlanta</a>
                     <a href="#city/Asheville" class="list-group-item">Asheville</a>
                   </div>
-                </div>
-                <div class="col-md-9">
+                </div> -->
+                <div class="col-md-12">
                   <!--Body content-->
                   <div class="featured-city">
                     <!-- <div class="boxie">hello</div> -->
@@ -51,9 +58,9 @@
               </div>
             </div>
 
-            <!-- <div class="footer">
+            <div class="footer">
                 <p>♥ from jtheidenreich</p>
-            </div> -->
+            </div>
         </div>
         
         <!-- templates -->
@@ -64,12 +71,14 @@
         <script type="text/template" id="feature-template">
             <h1><%= name%></h1>
             <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= coord.lat %>,<%= coord.lon %>&zoom=11&size=300x300&sensor=false">
-            <h3><%= wind.speed%></h3>
-            <h3><%= main.temp%></h3>
-            <h3><%= main.temp_min%></h3>
-            <h3><%= main.temp_max%></h3>
-
-
+            <ul class="list-group">
+                <li class="list-group-item"><img class="png" src="http://openweathermap.org/img/w/<%=weather[0].icon%>.png"</li>
+                <li class="list-group-item">Temperature   <%= main.temp%></li>
+                <li class="list-group-item">Wind Speed<%= wind.speed%></li>
+                <li class="list-group-item">Min Temperature<%= main.temp_min%></li>
+                <li class="list-group-item">Max Temperature<%= main.temp_max%></li>
+                <li class="list-group-item">Pressure<%= main.pressure%></li>    
+            </ul>
         </script>
 
 
@@ -116,3 +125,4 @@
         <!-- endbuild -->
 </body>
 </html>
+
