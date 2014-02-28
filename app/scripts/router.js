@@ -34,7 +34,6 @@ var MainRouter = Backbone.Router.extend({
 	},
 
 	initialize: function(){
-		console.log('shit, shit')
 		this.weather = new WeatherDataCollection;
 	},
 

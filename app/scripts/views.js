@@ -28,13 +28,12 @@ var MainView = Backbone.View.extend({
 	featureTemplate:_.template($('#feature-template').text()),
 
 	initialize: function(){
-		console.log('MainView initialize')
 		$('.featured-city').html(this.el);
 		this.render()
 	},
 
 	render: function(){
-		console.log('hello')
+
 		this.$el.html(this.featureTemplate(this.model.attributes))
 	}
 })

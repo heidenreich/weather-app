@@ -90,10 +90,6 @@ body {
     }
 }
 
-img {
-    display: inline-block;
-    vertical-align: top;
-}
 
 .png {
     height: 75px;
@@ -104,14 +100,27 @@ img {
 //     font-size: 15px;
 // }
 
-.list-group {
-    display: inline-block;
+.table {
+    
 }
 
 a {
     color: #999999;
     font-size: 18px;
 }
+
+.map{
+    margin-top: 30px;
+}
+
+
+.icon-block{
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+// h2{
+//     margin-top: 30px; 
+// }
 
 
 

@@ -36,31 +36,23 @@
                     <li><a href="#city/Spartanburg">Spartanburg</a></li>
                     <li><a href="#city/Charleston">Charleston</a></li>
                     <li><a href="#city/Atlanta">Atlanta</a></li>
-                    <li><a href="#city/Charleston">Asheville</a></li>
+                    <li><a href="#city/Asheville">Asheville</a></li>
                 </ul>
 
-              <div class="row-fluid">
-          <!--       <div class="col-md-3">
-                  <div class="list-group">
-                    <a href="#city/Greenville" class="list-group-item">Greenville</a>
-                    <a href="#city/Spartanburg" class="list-group-item">Spartanburg</a>
-                    <a href="#city/Charleston" class="list-group-item">Charleston</a>
-                    <a href="#city/Atlanta" class="list-group-item">Atlanta</a>
-                    <a href="#city/Asheville" class="list-group-item">Asheville</a>
-                  </div>
-                </div> -->
-                <div class="col-md-12">
+                <div class="row-fluid">
+                    <div class="col-md-12">
                   <!--Body content-->
-                  <div class="featured-city">
-                    <!-- <div class="boxie">hello</div> -->
-                  </div>
+                        <div class="featured-city">
+                        </div>
+                    </div>
                 </div>
-              </div>
+            <!-- <div class="fixed-bottom">♥ from jtheidenreich</div> -->
             </div>
 
-            <div class="footer">
+
+           <!--  <div class="footer">
                 <p>♥ from jtheidenreich</p>
-            </div>
+            </div> -->
         </div>
         
         <!-- templates -->
@@ -69,25 +61,37 @@
         </script>
 
         <script type="text/template" id="feature-template">
-            <h1><%= name%></h1>
-            <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= coord.lat %>,<%= coord.lon %>&zoom=11&size=300x300&sensor=false">
-            <ul class="list-group">
-                <li class="list-group-item"><img class="png" src="http://openweathermap.org/img/w/<%=weather[0].icon%>.png"</li>
-                <li class="list-group-item">Temperature   <%= main.temp%></li>
-                <li class="list-group-item">Wind Speed<%= wind.speed%></li>
-                <li class="list-group-item">Min Temperature<%= main.temp_min%></li>
-                <li class="list-group-item">Max Temperature<%= main.temp_max%></li>
-                <li class="list-group-item">Pressure<%= main.pressure%></li>    
-            </ul>
+            <div class="container-fluid">
+                <div class="col-md-6">
+                    <img class="map"src="http://maps.googleapis.com/maps/api/staticmap?center=<%= coord.lat %>,<%= coord.lon %>&zoom=11&size=400x400&sensor=false">
+                </div>
+                <div class="col-md-6">
+                    <h2><%= name%></h2>
+                    <h2 class="icon-block"> <img class ="png"src="http://openweathermap.org/img/w/<%=weather[0].icon%>.png"> <%= main.temp%>°F</h2>
+                    <p><%= weather[0].main%></p><div>Captured at <%= dt%></div>
+                    <table class="table table-striped table-bordered table-condensed">
+                        <tbody>
+                            <tr><td>Wind</td><td><%=wind.speed%><br><%=wind.deg%></td></tr>
+                            <tr><td>Cloudiness</td><td><%= weather[0].description%></td></tr>
+                            <tr><td>Pressure</td><td><%= main.pressure%></td></tr>
+                            <tr><td>Humidity</td><td><%= main.humidity%> %</td></tr>
+                            <tr><td>Rain</td><td><%= sys.message%></td></tr>
+                            <tr><td>sunrise</td><td ><%= sys.sunrise%></td></tr>
+                            <tr><td>sunset</td><td ><%= sys.sunset%></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>     
         </script>
-
 
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/momentjs/moment.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
         <script src="bower_components/chartjs/Chart.js"></script>
+
         <!-- endbower -->
         <!-- endbuild -->
 
@@ -126,3 +130,41 @@
 </body>
 </html>
 
+
+<!-- <div class="span4">
+
+    <h3><%= name%></h3>
+    <h2> <img src="http://openweathermap.org/img/w/<%=weather[0].icon%>.png"> <%= main.temp%></h2>
+    Sky is Clear<p></p><div id="date_m">get at 2014.02.27 16:20</div><p></p>
+
+    <table class="table table-striped table-bordered table-condensed">
+        <tbody>
+
+            <tr><td>Wind</td><td>Gentle Breeze 4.1 m/s <br>Southwest (220°)</td></tr>
+
+            <tr><td>Cloudiness</td><td><%= weather.description%></td></tr>
+
+            <tr><td>Pressure</td><td><%= main.pressure%></td></tr>
+
+            <tr><td>Humidity</td><td><%= main.humidity%> %</td></tr>
+
+            <tr><td>Rain</td><td>0 mm/3 hour</td></tr>
+
+
+            <tr><td>sunrise</td><td id="sunrise"><%= sys.sunrise%></td></tr>
+            <tr><td>sunset</td><td id="sunset"><%= sys.sunset%></td></tr>
+        </tbody>
+    </table>
+</div>
+ -->
+
+   <!-- // <h1><%= name%></h1>
+            // <img src="http://maps.googleapis.com/maps/api/staticmap?center=<%= coord.lat %>,<%= coord.lon %>&zoom=11&size=300x300&sensor=false">
+            // <ul class="list-group">
+            //     <li class="list-group-item"><img class="png" src="http://openweathermap.org/img/w/<%=weather[0].icon%>.png"</li>
+            //     <li class="list-group-item">Temperature   <%= main.temp%></li>
+            //     <li class="list-group-item">Wind Speed<%= wind.speed%></li>
+            //     <li class="list-group-item">Min Temperature<%= main.temp_min%></li>
+            //     <li class="list-group-item">Max Temperature<%= main.temp_max%></li>
+            //     <li class="list-group-item">Pressure<%= main.pressure%></li>    
+            // </ul> -->
