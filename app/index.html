@@ -50,9 +50,9 @@
             </div>
 
 
-           <!--  <div class="footer">
+            <div class="footer">
                 <p>♥ from jtheidenreich</p>
-            </div> -->
+            </div>
         </div>
         
         <!-- templates -->
@@ -68,16 +68,17 @@
                 <div class="col-md-6">
                     <h2><%= name%></h2>
                     <h2 class="icon-block"> <img class ="png"src="http://openweathermap.org/img/w/<%=weather[0].icon%>.png"> <%= main.temp%>°F</h2>
-                    <p><%= weather[0].main%></p><div>Captured at <%= dt%></div>
+                    <p><%= weather[0].main%></p><div>Captured at <%= moment(dt*1000).calendar()%></div>
                     <table class="table table-striped table-bordered table-condensed">
                         <tbody>
-                            <tr><td>Wind</td><td><%=wind.speed%><br><%=wind.deg%></td></tr>
+                            <tr><td>Wind</td><td><%=wind.speed%>mph</td></tr>
                             <tr><td>Cloudiness</td><td><%= weather[0].description%></td></tr>
-                            <tr><td>Pressure</td><td><%= main.pressure%></td></tr>
+                            <tr><td>Pressure</td><td><%= main.pressure%>hpa</td></tr>
                             <tr><td>Humidity</td><td><%= main.humidity%> %</td></tr>
-                            <tr><td>Rain</td><td><%= sys.message%></td></tr>
-                            <tr><td>sunrise</td><td ><%= sys.sunrise%></td></tr>
-                            <tr><td>sunset</td><td ><%= sys.sunset%></td></tr>
+                            <tr><td>Temperature Minimum</td><td ><%= main.temp_min%>°F</td></tr>
+                            <tr><td>Temperature Maximum</td><td ><%= main.temp_max%>°F</td></tr>
+                            <tr><td>Sunrise</td><td ><%= moment(sys.sunrise*1000).format('h:mm a')%></td></tr>
+                            <tr><td>Sunset</td><td ><%= moment(sys.sunset*1000).format('h:mm a')%></td></tr>
                         </tbody>
                     </table>
                 </div>
