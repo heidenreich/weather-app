@@ -29,6 +29,8 @@
         <div class="container">
             <div class="page-header">
                 <h1>Another Weather App? <small>yes, I think so..</small></h1>
+                <p><button onclick="geoFindMe()">Show my location</button></p>
+                
             </div>
             <div class="container-fluid">
                 <ul class="nav nav-pills nav-justified">
@@ -43,11 +45,17 @@
                     <div class="col-md-12">
                   <!--Body content-->
                         <div class="featured-city">
+                            <div class="col-md-9 col-md-offset-2">
+                                <img src="http://maps.googleapis.com/maps/api/staticmap?center=Newberry,sc&zoom=7&size=600x400&maptype=roadmap%20&markers=color:blue%7Clabel:S%7C34.9407,-81.925&markers=color:green%7Clabel:G%7C34.8444,-82.3856%20&markers=color:red%7Clabel:A%7C35.5800,-82.5558&markers=color:yellow%7Clabel:A%7C33.7550,-84.3900&markers=color:black%7Clabel:C%7C32.7833,-79.9333&sensor=true">
+                            </div>
                         </div>
                     </div>
                 </div>
             <!-- <div class="fixed-bottom">♥ from jtheidenreich</div> -->
             </div>
+            <div id="out"></div>
+
+           <!--  <canvas id="myChart" width="400" height="400"</canvas> -->
 
 
             <div class="footer">
@@ -67,7 +75,7 @@
                 </div>
                 <div class="col-md-6">
                     <h2><%= name%></h2>
-                    <h2 class="icon-block"> <img class ="png"src="http://openweathermap.org/img/w/<%=weather[0].icon%>.png"> <%= main.temp%>°F</h2>
+                    <h2 class="icon-block"> <img class ="png"src="http://openweathermap.org/img/w/<%=weather[0].icon%>.png"> <%= Math.round(main.temp)%>°F</h2>
                     <p><%= weather[0].main%></p><div>Captured at <%= moment(dt*1000).calendar()%></div>
                     <table class="table table-striped table-bordered table-condensed">
                         <tbody>
@@ -75,8 +83,8 @@
                             <tr><td>Cloudiness</td><td><%= weather[0].description%></td></tr>
                             <tr><td>Pressure</td><td><%= main.pressure%>hpa</td></tr>
                             <tr><td>Humidity</td><td><%= main.humidity%> %</td></tr>
-                            <tr><td>Temperature Minimum</td><td ><%= main.temp_min%>°F</td></tr>
-                            <tr><td>Temperature Maximum</td><td ><%= main.temp_max%>°F</td></tr>
+                            <tr><td>Temperature Minimum</td><td ><%= Math.round(main.temp_min)%>°F</td></tr>
+                            <tr><td>Temperature Maximum</td><td ><%= Math.round(main.temp_max)%>°F</td></tr>
                             <tr><td>Sunrise</td><td ><%= moment(sys.sunrise*1000).format('h:mm a')%></td></tr>
                             <tr><td>Sunset</td><td ><%= moment(sys.sunset*1000).format('h:mm a')%></td></tr>
                         </tbody>
@@ -88,10 +96,10 @@
         <!-- build:js scripts/vendor.js -->
         <!-- bower:js -->
         <script src="bower_components/jquery/jquery.js"></script>
+        <script src="bower_components/chartjs/Chart.js"></script>
         <script src="bower_components/momentjs/moment.js"></script>
         <script src="bower_components/underscore/underscore.js"></script>
         <script src="bower_components/backbone/backbone.js"></script>
-        <script src="bower_components/chartjs/Chart.js"></script>
 
         <!-- endbower -->
         <!-- endbuild -->

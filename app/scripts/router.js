@@ -23,6 +23,7 @@
 var MainRouter = Backbone.Router.extend({
   	routes: {
     	"city/:name" 	: "cityWeather"
+
 	},
 
 	idToName: {
@@ -42,5 +43,7 @@ var MainRouter = Backbone.Router.extend({
 		this.weather.url += ("&id=" + this.idToName[name])
 		this.weather.fetch()	
 	}
+
+
 })
  
