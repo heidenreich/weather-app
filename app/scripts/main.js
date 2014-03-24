@@ -1,41 +1,41 @@
 console.log('What in the HELL?!?!?!?!?!?');
 
-$(document).ready(function(){
+$(document).ready(function() {
 
-	router = new MainRouter();
+   router = new MainRouter();
 
-	Backbone.history.start(); 
+   Backbone.history.start();
 
 
 });
 
 function geoFindMe() {
-  var output = document.getElementById("out");
+   var output = document.getElementById("out");
 
-  // if (!navigator.geolocation){
-  //   output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
-  //   return;
-  // }
+   // if (!navigator.geolocation){
+   //   output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+   //   return;
+   // }
 
-  function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
+   function success(position) {
+      var latitude = position.coords.latitude;
+      var longitude = position.coords.longitude;
 
-    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+      output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
 
-    var img = new Image();
-    img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+      var img = new Image();
+      img.src = "http://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
-    output.appendChild(img);
-  };
+      output.appendChild(img);
+   };
 
-  function error() {
-    output.innerHTML = "Unable to retrieve your location";
-  };
+   function error() {
+      output.innerHTML = "Unable to retrieve your location";
+   };
 
-  output.innerHTML = "<p>Locating…</p>";
+   output.innerHTML = "<p>Locating…</p>";
 
-  navigator.geolocation.getCurrentPosition(success, error);
+   navigator.geolocation.getCurrentPosition(success, error);
 }
 
 
@@ -74,11 +74,11 @@ function geoFindMe() {
 //  	animation: true
 // };
 
-    //Get the context of the canvas element we want to select
+//Get the context of the canvas element we want to select
 // var c = $('#myChart');
 // var ct = c.get(0).getContext('2d');
 // var ctx = document.getElementById("myChart").getContext("2d");
-    
+
 // myNewChart = new Chart(ct).PolarArea(data, options);
 
 
@@ -120,7 +120,3 @@ function geoFindMe() {
 // $.getJSON('http://api.openweathermap.org/data/2.5/weather?id=4453066&callback=?', function(response){
 // 	weatherDataPoints.add(response)
 // })
-
-
-
-
